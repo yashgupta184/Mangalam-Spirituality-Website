@@ -1,0 +1,223 @@
+@import "tailwindcss";
+
+:root {
+  /* Natural Earthy Spiritual Palette (Rudraksha, Ebony, Terracotta, Copper & Sandalwood) */
+  --maroon: #422216;             /* Himalayan Rudraksha Bark Brown */
+  --maroon-dark: #2C160C;
+  --maroon-light: #5A3320;
+  --saffron: #C96818;            /* Natural Earthy Saffron Tilak */
+  --saffron-hover: #B5580E;
+  --gold: #B87333;               /* Sacred Temple Copper / Aged Brass */
+  --gold-light: #D48E48;
+  --gold-hairline: rgba(184, 115, 51, 0.3);
+  --ivory: #F7F2E8;              /* Natural Unbleached Cotton / Sandstone */
+  --ivory-surface: #FFFFFF;
+  --ivory-muted: #EDE4D3;
+  --charcoal: #241D19;           /* Natural Soot / Earth Charcoal */
+  --charcoal-muted: #5C5047;
+  --copper-seal: #A44C18;        /* Terracotta Clay Authenticity Seal */
+  --copper-light: #F4E8DC;
+
+  /* Semantic Theme tokens (Light Earthy Natural Mode) */
+  --bg-primary: #F7F2E8;
+  --bg-surface: #FFFFFF;
+  --bg-surface-elevated: #EFE5D3;
+  --bg-header: rgba(247, 242, 232, 0.94);
+  --text-primary: #241D19;
+  --text-secondary: #5C5047;
+  --text-muted: #7E7065;
+  --border-subtle: #E2D6C2;
+  --border-gold: #B87333;
+  --accent-cta: #C96818;
+  --accent-cta-text: #FFFFFF;
+  --card-shadow: 0 4px 18px -2px rgba(66, 34, 22, 0.05), 0 2px 6px -1px rgba(66, 34, 22, 0.03);
+  --card-shadow-hover: 0 10px 24px -4px rgba(66, 34, 22, 0.1), 0 4px 10px -2px rgba(66, 34, 22, 0.06);
+}
+
+[data-theme="dark"],
+.dark {
+  /* Semantic Theme tokens (Dark Mode: Deep Himalayan Night) */
+  --bg-primary: #181310;
+  --bg-surface: #221A15;
+  --bg-surface-elevated: #2C211B;
+  --bg-header: rgba(24, 19, 16, 0.94);
+  --text-primary: #F7F2E8;
+  --text-secondary: #D6C8B8;
+  --text-muted: #A39382;
+  --border-subtle: #3A2B23;
+  --border-gold: #C68B45;
+  --accent-cta: #C96818;
+  --accent-cta-text: #FFFFFF;
+  --maroon: #633621;
+  --copper-seal: #C66A2C;
+  --card-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.4);
+  --card-shadow-hover: 0 12px 28px -4px rgba(184, 115, 51, 0.15);
+}
+
+@layer base {
+  * {
+    border-color: var(--border-subtle);
+  }
+  
+  html {
+    scroll-behavior: smooth;
+    color-scheme: light dark;
+  }
+
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: var(--font-sans), sans-serif;
+    transition: background-color 0.25s ease, color 0.25s ease;
+    overflow-x: hidden;
+  }
+}
+
+/* Typography Helpers */
+.font-serif-sacred {
+  font-family: var(--font-serif), Georgia, serif;
+}
+
+/* Section-Wise Theme Contrast (Landing Page Only)
+   Each landing page section is independently themed using its assigned ID.
+   Dark sections inherit the global dark theme; light sections override the
+   global dark theme with the existing Light Theme CSS variables.
+   Footer is excluded from all overrides. */
+.landing-hero-dark,
+.landing-sacred-purpose-dark,
+.landing-authenticity-dark,
+.landing-reviews-dark {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.landing-trust-light,
+.landing-bestsellers-light,
+.landing-matchmaker-light,
+.landing-faq-light {
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+}
+
+/* Light sections: override the global dark theme with the existing Light Theme variables */
+.landing-trust-light,
+.landing-bestsellers-light,
+.landing-matchmaker-light,
+.landing-faq-light {
+  --bg-primary: #F7F2E8;
+  --bg-surface: #FFFFFF;
+  --bg-surface-elevated: #EFE5D3;
+  --bg-header: rgba(247, 242, 232, 0.94);
+  --text-primary: #241D19;
+  --text-secondary: #5C5047;
+  --text-muted: #7E7065;
+  --border-subtle: #E2D6C2;
+  --border-gold: #B87333;
+  --accent-cta: #C96818;
+  --accent-cta-text: #FFFFFF;
+  --card-shadow: 0 4px 18px -2px rgba(66, 34, 22, 0.05), 0 2px 6px -1px rgba(66, 34, 22, 0.03);
+  --card-shadow-hover: 0 10px 24px -4px rgba(66, 34, 22, 0.1), 0 4px 10px -2px rgba(66, 34, 22, 0.06);
+  --maroon: #422216;
+  --maroon-dark: #2C160C;
+  --maroon-light: #5A3320;
+  --saffron: #C96818;
+  --saffron-hover: #B5580E;
+  --gold: #B87333;
+  --gold-light: #D48E48;
+  --gold-hairline: rgba(184, 115, 51, 0.3);
+  --ivory: #F7F2E8;
+  --ivory-surface: #FFFFFF;
+  --ivory-muted: #EDE4D3;
+  --charcoal: #241D19;
+  --charcoal-muted: #5C5047;
+  --copper-seal: #A44C18;
+  --copper-light: #F4E8DC;
+}
+
+/* Footer must remain completely unchanged */
+footer {
+  /* No overrides — footer keeps its existing theme */
+}
+
+.font-sans-clean {
+  font-family: var(--font-sans), sans-serif;
+}
+
+.font-devanagari {
+  font-family: var(--font-devanagari), serif;
+}
+
+/* Sacred Texture and Patterns */
+.bg-mandala-pattern {
+  background-image: radial-gradient(var(--gold-hairline) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.bg-sacred-gradient {
+  background: linear-gradient(135deg, rgba(66, 34, 22, 0.03) 0%, rgba(184, 115, 51, 0.05) 50%, rgba(201, 104, 24, 0.04) 100%);
+}
+
+/* Hairline Copper Dividers */
+.gold-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, var(--gold) 50%, transparent 100%);
+  opacity: 0.5;
+}
+
+/* Earthy Micro-interaction & Buttons */
+.btn-saffron {
+  background-color: var(--accent-cta);
+  color: #FFFFFF;
+  font-weight: 600;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-saffron:hover {
+  background-color: var(--saffron-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(201, 104, 24, 0.3);
+}
+.btn-saffron:active {
+  transform: translateY(0);
+}
+
+.btn-gold-outline {
+  border: 1px solid var(--gold);
+  color: var(--text-primary);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-gold-outline:hover {
+  background-color: rgba(184, 115, 51, 0.1);
+  border-color: var(--gold-light);
+  transform: translateY(-1px);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--gold-hairline);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold);
+}
+
+/* Accessibility Focus Ring */
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
